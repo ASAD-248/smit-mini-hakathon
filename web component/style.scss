@@ -1,0 +1,225 @@
+
+// *** ---- mixins --- *** ///
+@font-face {
+    font-family: poppins-light;
+    src: url(./assests/fonts/Poppins-Light.ttf);
+}
+@font-face {
+    font-family: poppins-med;
+    src: url(./assests/fonts/Poppins-Medium.ttf);
+}
+@font-face {
+    font-family: poppins-bold;
+    src: url(./assests/fonts/Poppins-Bold.ttf);
+}
+
+// *** ---- variables --- *** ///
+$primary-color: rgb(0, 153, 255);
+$seconDary-color: rgb(0, 110, 255);
+@mixin container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    flex-wrap: wrap;
+}
+@mixin border {
+    border: 1px solid black;
+}
+
+@mixin section-fluid {
+    width: 100%;   
+    display: grid;
+    grid-template-columns: 70%;
+    justify-content: center !important;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    padding: 2%;
+    height: fit-content;
+}
+@mixin primary-btn{
+    padding:8px 15px;
+    background-color: rgb(0, 153, 255);
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 153, 255, 0.555) 0px 5px 15px;
+    
+}
+@mixin mini-txt {
+    font-size: 20px;
+    color: black;
+    font-weight: 700;
+}
+@mixin anchor {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 0.50px;
+}
+
+// *** ---- styling start --- *** ///
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.my-navigation{
+    width: 100%;
+    height:fit-content;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px 0px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 70%;
+    justify-content: center;
+    @include border;
+   
+
+
+   .my-container{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+    .logo{
+        align-self:last baseline;
+        h1{
+            font-size: 1.90rem;
+            font-family: poppins-bold;
+            letter-spacing: 1px;
+            color: $primary-color;
+            
+        }
+        span{
+            color: black;
+        }
+    }
+    .menue{
+        display: flex ;
+        gap: 2.50rem;
+        list-style-type: none;
+        align-items: center;
+        @include border ;
+        margin: 0;
+        
+
+        a{
+            text-decoration: none;
+            font-family: poppins-med;
+            color: black;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: 400;
+            line-height: 2px
+            
+        }
+    }
+   }
+  
+   .form-box{
+  
+    .btn{
+        @include primary-btn;
+
+        a{
+            @include anchor ;
+        }
+    }
+    .bars-icon-btn{
+        display: none;
+    }
+   }
+}
+//---*** <-- all media quries start --> ***---//
+//  <-- nav -->  //
+
+//---*** <-- media quries closed --> ***---//
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { 
+//     .my-navigation{
+//        width: 100%;
+//        .container{
+//             width: 100%;
+//         .menue{
+//             display: none;
+//         }
+//         .form-box{
+//             .bars-icon-btn{
+//                 display: block;
+//                 @include primary-btn();
+//                 color: white;
+//                 a{
+//                     color: white;
+//                 }
+//             }
+//             .btn{
+//                 display: none;
+               
+//             }
+//         }
+      
+//        }
+       
+//     }
+
+//  }
+ // Small devices (landscape phones, 576px and up) end //
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+ // Large devices (desktops, 992px and up) start //
+@media (min-width: 992px) { 
+        .my-navigation{
+
+            .my-container{
+
+                .form-box{
+                    display: none;
+                }
+            }
+        }
+
+
+
+ }
+// Large devices (desktops, 992px and up) closed //
+// X-Large devices (large desktops, 1200px and up) start //
+@media (min-width: 1200px) {
+     // --- <// nav 1 start //> ---//
+    .my-navigation{
+        width: 100%;
+        
+
+        .my-container{
+            @include container();
+       
+    }
+    // --- <// section 1 start //> ---//
+    .secOne{
+        @include section-fluid();
+        .my-container{
+            @include container();
+        }
+    }
+    }
+}
+// X-Large devices (large desktops, 1200px and up) closed //
+// XX-Large devices (larger desktops, 1400px and up) start //
+// @media (min-width: 1400px) { 
+//     .my-navigation{
+//        width: 100%;
+//        .container{
+//             width: 100%;
+//        } 
+//     }
+//  } 
+ // XX-Large devices (larger desktops, 1400px and up) end //
+
